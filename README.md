@@ -2,6 +2,9 @@
 
 - Created by Claude Code with Chrome extension
 
+## Video
+Full flow: https://youtu.be/Qb683Q1EtMc
+
 ## Prompt input
 - We're in a new empty folder, we're creating a wordpress form plugin. Let's start by setting up a wordpress local development environment, it's fine to run in localhost, we can probably use wp-env
 - remember, we also need wordpress files - might not makes sense to add the plugin file in the root directory. (unless wp-env lives somewhere else? never used..)
@@ -44,9 +47,6 @@
   [Pasted text #1 +1637 lines]
 - test everything
 - exit
-
-## Video
-Full flow: https://youtu.be/Qb683Q1EtMc
 
 --- Rest of README by Claude Code --- 
 
