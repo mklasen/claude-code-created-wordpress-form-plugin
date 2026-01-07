@@ -1,0 +1,291 @@
+// Modern, beautiful form styling
+.wp-form-plugin-contact-form {
+    max-width: 680px;
+    margin: 40px auto;
+    padding: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    
+    // Form header
+    &::before {
+        content: "";
+        display: block;
+        height: 6px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .wp-form-plugin-form-inner {
+        padding: 40px 48px 48px;
+
+        @media (max-width: 640px) {
+            padding: 32px 24px 36px;
+        }
+    }
+
+    .wp-form-plugin-field {
+        margin-bottom: 28px;
+        position: relative;
+        animation: slideUp 0.3s ease-out;
+
+        &:nth-child(1) { animation-delay: 0.1s; }
+        &:nth-child(2) { animation-delay: 0.2s; }
+        &:nth-child(3) { animation-delay: 0.3s; }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #2d3748;
+            letter-spacing: 0.01em;
+            transition: color 0.2s ease;
+
+            &::after {
+                content: " *";
+                color: #e53e3e;
+                font-weight: 400;
+            }
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            color: #2d3748;
+            background-color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-sizing: border-box;
+
+            &::placeholder {
+                color: #a0aec0;
+                opacity: 1;
+            }
+
+            &:hover {
+                border-color: #cbd5e0;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: #667eea;
+                background-color: #f7fafc;
+                box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+                transform: translateY(-1px);
+            }
+
+            &.error {
+                border-color: #fc8181;
+                background-color: #fff5f5;
+            }
+
+            &.success {
+                border-color: #68d391;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+            line-height: 1.6;
+            font-family: inherit;
+        }
+
+        // Error message styling
+        .wp-form-plugin-field-error {
+            display: none;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #e53e3e;
+            font-weight: 500;
+            animation: shake 0.3s ease;
+
+            &.visible {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            &::before {
+                content: "⚠";
+                font-size: 14px;
+            }
+        }
+    }
+
+    .wp-form-plugin-submit {
+        width: 100%;
+        padding: 16px 32px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+        position: relative;
+        overflow: hidden;
+        margin-top: 8px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+
+            &::before {
+                left: 100%;
+            }
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+
+        &:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+
+            &:hover {
+                transform: none;
+            }
+        }
+
+        &.loading {
+            pointer-events: none;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                top: 50%;
+                left: 50%;
+                margin-left: -8px;
+                margin-top: -8px;
+                border: 2px solid #ffffff;
+                border-radius: 50%;
+                border-top-color: transparent;
+                animation: spin 0.6s linear infinite;
+            }
+        }
+    }
+
+    .wp-form-plugin-message {
+        margin-top: 20px;
+        padding: 16px 20px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        display: none;
+        animation: slideDown 0.4s ease-out;
+        align-items: center;
+        gap: 12px;
+
+        &.visible {
+            display: flex;
+        }
+
+        &.success {
+            background-color: #c6f6d5;
+            color: #22543d;
+            border: 2px solid #9ae6b4;
+
+            &::before {
+                content: "✓";
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                background: #38a169;
+                color: white;
+                border-radius: 50%;
+                font-weight: bold;
+                flex-shrink: 0;
+            }
+        }
+
+        &.error {
+            background-color: #fed7d7;
+            color: #742a2a;
+            border: 2px solid #fc8181;
+
+            &::before {
+                content: "✕";
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                background: #e53e3e;
+                color: white;
+                border-radius: 50%;
+                font-weight: bold;
+                flex-shrink: 0;
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .wp-form-plugin-contact-form {
+        margin: 24px 16px;
+        border-radius: 12px;
+    }
+}

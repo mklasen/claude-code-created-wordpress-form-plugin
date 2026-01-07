@@ -1,0 +1,21 @@
+{
+  "name": "wp-form-plugin",
+  "version": "1.0.0",
+  "description": "A custom WordPress form plugin with block editor support",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "format": "wp-scripts format",
+    "lint:js": "wp-scripts lint-js"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^27.0.0"
+  },
+  "keywords": [
+    "wordpress",
+    "block",
+    "form"
+  ],
+  "author": "Your Name",
+  "license": "GPL-2.0-or-later"
+}

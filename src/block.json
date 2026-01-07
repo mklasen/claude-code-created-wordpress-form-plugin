@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wp-form-plugin/contact-form",
+  "version": "1.0.0",
+  "title": "Contact Form",
+  "category": "widgets",
+  "icon": "email",
+  "description": "A simple contact form block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "wp-form-plugin",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+  "style": "file:./style-index.css"
+}

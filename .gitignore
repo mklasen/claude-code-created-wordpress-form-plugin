@@ -1,0 +1,21 @@
+# wp-env
+.wp-env.home/
+node_modules/
+
+# WordPress
+wordpress/
+wp-content/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+build/
+vendor/
